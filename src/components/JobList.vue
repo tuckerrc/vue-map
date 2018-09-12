@@ -16,6 +16,10 @@
 <script>
 import JobListItem from "./JobListItem.vue"
 
+import jobRequests from "./jobRequests.js"
+
+console.log(jobRequests.requestJobs({"search": ""}));
+
 export default {
     components: {
         JobListItem
