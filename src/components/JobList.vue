@@ -17,8 +17,6 @@
 import JobListItem from "./JobListItem.vue"
 const axios = require("axios");
 
-import jobRequests from "./jobRequests.js"
-
 export default {
     components: {
         JobListItem
