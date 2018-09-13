@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <h1>List</h1>
+    <h1>List</h1>
     <JobList/>
   </div>
 </template>

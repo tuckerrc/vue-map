@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style>
-    .category {
-        padding: 10px;
-    }
+.category {
+  padding: 10px;
+}
 </style>
