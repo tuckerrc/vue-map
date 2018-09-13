@@ -4,7 +4,10 @@
             <JobListItem
               v-for="job in jobs"
               :key="job.guid"
-              :job="job"
+              :title="job.properties.title"
+              :link="job.properties.link"
+              :location="job.properties.location"
+              :categories="job.properties.category"
             />
         </ul>
         <p v-else>

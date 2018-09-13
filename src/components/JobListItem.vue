@@ -1,13 +1,13 @@
 <template>
     <div class="job-listing">
-        <div class="title">Title: {{job.properties.title}}</div>
+        <div class="title"><a v-bind:href="link">{{title}}</a></div>
         <div class="location">Location:
-            <span v-if="job.properties.location">{{job.properties.location}}</span>
+            <span v-if="location">{{location}}</span>
             <span v-else>No office location</span>
         </div>
         <div class="categories">
             <JobCategory
-              v-for="category in job.properties.category"
+              v-for="category in categories"
               :category="category"
             />
         </div>
@@ -22,9 +22,21 @@ export default {
       JobCategory
   },
   props: {
-    job: {
-      type: Object,
+    title: {
+      type: String,
       required: true
+    },
+    link: {
+      type: String,
+      required: true
+    },
+    location: {
+      type: String,
+      required: false
+    },
+    categories: {
+      type: Array,
+      required: false
     }
   }
 }
