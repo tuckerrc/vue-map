@@ -19,10 +19,23 @@
 <script>
 import JobListItem from './JobListItem.vue'
 const axios = require('axios')
+const apiBaseUrl = 'https://api.tuckerchapman.com/stackjobs'
 
 export default {
   components: {
     JobListItem
+  },
+  methods: {
+    search (params = {}) {
+      axios.post(
+        apiBaseUrl,
+        params,
+        { header: {
+          'content-type': 'application/json'
+        } })
+        .then(response => (this.jobs = response.data.data.features))
+        .catch(error => (console.log(error)))
+    }
   },
   data () {
     return {
@@ -30,14 +43,7 @@ export default {
     }
   },
   mounted () {
-    axios.post(
-      'https://api.tuckerchapman.com/stackjobs',
-      {},
-      { header: {
-        'content-type': 'application/json'
-      } })
-      .then(response => (this.jobs = response.data.data.features))
-      .catch(error => (console.log(error)))
+    this.search();
   }
 }
 </script>
