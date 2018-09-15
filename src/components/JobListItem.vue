@@ -47,4 +47,18 @@ export default {
   text-align: left;
   padding: 20px;
 }
+
+.job-listing > div {
+  margin: 10px;
+}
+
+a {
+  color: #2f4135;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c59169;
+  text-decoration: underline;
+}
 </style>

@@ -3,17 +3,17 @@
     id="jobSearch"
     v-on:submit.prevent="handleSubmit"
   >
-    <label for="search">Search: </label>
     <input
       id="search"
+      placeholder="Search Jobs"
       class="input"
       name="search"
       type="text"
       v-model="search"
     >
-    <label for="location">Location: </label>
     <input
       id="location"
+      placeholder="Location"
       class="input"
       name="location"
       type="text"
@@ -59,5 +59,7 @@ export default {
 </script>
 
 <style>
-
+  input {
+    margin: 0px 10px;
+  }
 </style>

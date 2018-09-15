@@ -15,6 +15,8 @@ export default {
 
 <style>
 .category {
-  padding: 10px;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  border-radius: 3px;
 }
 </style>
