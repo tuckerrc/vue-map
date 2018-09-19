@@ -40,17 +40,18 @@ export default {
     return {
       search: null,
       location: null,
-      remote: 'false'
+      remote: false
     }
   },
   methods: {
-    handleSubmit(event) {
-      let strRemote = (this.remote) ? 'true' : 'false'
+    handleSubmit (event) {
       var formData = {
         'search': this.search,
-        'location': this.location,
-        'remote': strRemote
-      };
+        'location': this.location
+      }
+
+      if (this.remote) { formData.remote = 'true' }
+
       console.log(formData)
       this.$emit('submit', formData)
     }
