@@ -18,5 +18,6 @@ export default {
   padding: 5px 10px;
   margin: 0px 10px;
   border-radius: 3px;
+  float: left;
 }
 </style>

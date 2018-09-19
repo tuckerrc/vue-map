@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style>
+.categories::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
 .job-listing {
   text-align: left;
   padding: 20px;
