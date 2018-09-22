@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>List</h1>
+    <h1>Job Search (Stack Overflow Jobs)</h1>
     <JobList/>
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 25px;
+  padding: 20px 20px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -38,6 +39,7 @@ export default {
 @media (max-width: 768px) {
   #app {
     width: 100%;
+    padding: 0px;
   }
 }
 </style>

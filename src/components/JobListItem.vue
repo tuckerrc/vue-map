@@ -52,19 +52,26 @@ export default {
 .job-listing {
   text-align: left;
   padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 1px 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-left: 4px solid #006400;
 }
 
 .job-listing > div {
   margin: 10px;
 }
 
+.job-listing .location {
+    color: #777777;
+    font-style: italic;
+}
+
 a {
-  color: #2f4135;
+  color: #000064;
   text-decoration: none;
 }
 
 a:hover {
-  color: #c59169;
   text-decoration: underline;
 }
 </style>
