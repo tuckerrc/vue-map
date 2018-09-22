@@ -12,6 +12,8 @@
         :title="job.properties.title"
         :link="job.properties.link"
         :location="job.properties.location"
+        :company="job.properties.company"
+        :remote="job.properties.remote"
         :categories="job.properties.category"
       />
     </ul>

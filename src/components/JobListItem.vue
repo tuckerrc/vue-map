@@ -1,9 +1,19 @@
 <template>
   <div class="job-listing">
-    <div class="title"><a v-bind:href="link">{{title}}</a></div>
-    <div class="location">Location:
-      <span v-if="location">{{location}}</span>
-      <span v-else>No office location</span>
+    <div class="title">
+        <a v-bind:href="link">
+            {{title}} <span>{{remote}}</span>
+        </a>
+    </div>
+    <div class="location-company">
+      <span class="company">
+        <span v-if="company">{{company}}</span>
+        <span v-else>No Company Name</span>
+      </span>
+      <span class="location">
+        <span v-if="location">{{location}}</span>
+        <span v-else>No office location</span>
+      </span>
     </div>
     <div class="categories">
       <JobCategory
@@ -34,6 +44,14 @@ export default {
       type: String,
       required: false
     },
+    company: {
+      type: String,
+      required: false
+    },
+    remote: {
+      type: String,
+      required: false
+    },
     categories: {
       type: Array,
       required: false
@@ -43,7 +61,8 @@ export default {
 </script>
 
 <style>
-.categories::after {
+.categories::after,
+.location-company::after {
     display: block;
     content: "";
     clear: both;
@@ -62,8 +81,14 @@ export default {
 }
 
 .job-listing .location {
-    color: #777777;
-    font-style: italic;
+  color: #777777;
+  font-style: italic;
+}
+
+.company,
+.location {
+  float: left;
+  margin: 0px 10px;
 }
 
 a {
