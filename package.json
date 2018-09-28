@@ -16,6 +16,7 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-standard": "^3.0.1",
+    "tailwindcss": "^0.6.6",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
@@ -34,6 +35,7 @@
   },
   "postcss": {
     "plugins": {
+      "tailwindcss": "./tailwind-config.js",
       "autoprefixer": {}
     }
   },

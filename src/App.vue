@@ -7,6 +7,7 @@
 
 <script>
 import JobList from './components/JobList.vue'
+import './assets/styles/main.css'
 
 export default {
   name: 'app',
