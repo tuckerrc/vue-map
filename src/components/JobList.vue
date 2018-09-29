@@ -15,6 +15,7 @@
         :company="job.properties.company"
         :remote="job.properties.remote"
         :categories="job.properties.category"
+        :primarycategory="job.properties.category[0]"
       />
     </ul>
     <p v-else>
