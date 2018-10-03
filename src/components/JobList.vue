@@ -1,10 +1,5 @@
 <template>
   <div>
-    <JobSearchForm
-      v-model="search"
-      placeholder="Search"
-      @submit="submitForm"
-    />
     <ul v-if="jobs.length">
       <JobListItem
         v-for="job in jobs"
@@ -25,39 +20,19 @@
 </template>
 
 <script>
-import JobSearchForm from './JobSearchForm.vue'
 import JobListItem from './JobListItem.vue'
-
-const axios = require('axios')
-const apiBaseUrl = 'https://api.tuckerchapman.com/stackjobs'
 
 export default {
   components: {
-    JobListItem,
-    JobSearchForm
+    JobListItem
+  },
+  props: {
+    jobs: {
+      type: Object,
+      required: false
+    }
   },
   methods: {
-    search (params = {}) {
-      axios.post(
-        apiBaseUrl,
-        params,
-        { header: {
-          'content-type': 'application/json'
-        } })
-        .then(response => (this.jobs = response.data.data.features))
-        .catch(error => (console.log(error)))
-    },
-    submitForm (data) {
-      this.search(data);
-    }
-  },
-  data () {
-    return {
-      jobs: []
-    }
-  },
-  mounted () {
-    this.search()
   }
 }
 </script>
