@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <h1>Job Search (Stack Overflow Jobs)</h1>
+    <!--<h1>Job Search (Stack Overflow Jobs)</h1>
     <JobSearchForm
       v-model="search"
       placeholder="Search"
       @submit="submitForm"
     />
     <JobList
+      :jobs="jobs"
+    />-->
+    <JobMap
       :jobs="jobs"
     />
   </div>
@@ -15,6 +18,7 @@
 <script>
 import JobList from './components/JobList.vue'
 import JobSearchForm from './components/JobSearchForm.vue'
+import JobMap from './components/JobMap.vue'
 
 const axios = require('axios')
 const apiBaseUrl = 'https://api.tuckerchapman.com/stackjobs'
@@ -23,7 +27,8 @@ export default {
   name: 'app',
   components: {
     JobList,
-    JobSearchForm
+    JobSearchForm,
+    JobMap
   },
   data () {
     return {
@@ -42,7 +47,7 @@ export default {
         .catch(error => (console.log(error)))
     },
     submitForm (data) {
-      this.search(data);
+      this.search(data)
     }
   },
   mounted () {
@@ -52,29 +57,17 @@ export default {
 </script>
 
 <style>
+@import "../node_modules/leaflet/dist/leaflet.css";
 
-#app {
-  width: 800px;
-  margin: 0 auto;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 25px;
-  padding: 20px 20px;
+body {
+  padding: 0;
+  margin: 0;
+ }
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  #app {
-    width: 90%;
-    padding: 0px 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  #app {
-    width: 100%;
-    padding: 0px;
-  }
-}
 </style>

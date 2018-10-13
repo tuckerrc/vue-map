@@ -23,7 +23,6 @@ export default {
   color: #FFFFFF;
 }
 
-
 /* Category background colors */
 .category.python { background-color: #4584b6 }
 .category.php, .category.php-7 { background-color: #777bb3 }
