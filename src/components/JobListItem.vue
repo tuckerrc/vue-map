@@ -74,10 +74,11 @@ export default {
 
 .job-listing {
   text-align: left;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 6px;
   box-shadow: 1px 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   border-left: 4px solid #a9a9a9;
+  margin-left: 5px;
 }
 
 .job-listing > div {

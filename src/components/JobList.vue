@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul v-if="jobs.length">
+    <ul class="job-list" v-if="jobs.length">
       <JobListItem
         v-for="job in jobs"
         :key="job.guid"
@@ -28,7 +28,7 @@ export default {
   },
   props: {
     jobs: {
-      type: Object,
+      type: Array,
       required: false
     }
   },
@@ -38,8 +38,7 @@ export default {
 </script>
 
 <style>
-ul {
-  padding-left: 10px;
-  margin-top: 30px;
+ul.job-list {
+  padding-left: 0px;
 }
 </style>

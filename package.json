@@ -9,13 +9,17 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue2-leaflet": "^1.0.2",
+    "vue2-leaflet-markercluster": "^2.0.0",
+    "vuetify": "^1.2.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-standard": "^3.0.1",
+    "material-design-icons-iconfont": "^3.0.3",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
