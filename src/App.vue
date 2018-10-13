@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <!--<h1>Job Search (Stack Overflow Jobs)</h1>
-    <JobSearchForm
-      v-model="search"
-      placeholder="Search"
-      @submit="submitForm"
-    />
-    <JobList
-      :jobs="jobs"
-    />-->
-    <JobMap
-      :jobs="jobs"
-    />
+    <v-app id="vue-map">
+      <v-navigation-drawer
+        v-model="drawer"
+        fixed
+        width="400"
+        app
+      >
+        <JobSearchForm
+          v-model="search"
+          placeholder="Search"
+          @submit="submitForm"
+        />
+        <JobList
+          :jobs="jobs"
+        />
+      </v-navigation-drawer>
+      <v-toolbar dense dark fixed app>
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-title>Search Stack Overflow Jobs</v-toolbar-title>
+      </v-toolbar>
+      <v-content app>
+        <JobMap
+          :jobs="jobs"
+        />
+      </v-content>
+    </v-app>
   </div>
 </template>
 
@@ -32,7 +46,8 @@ export default {
   },
   data () {
     return {
-      jobs: []
+      jobs: [],
+      drawer: null
     }
   },
   methods: {
