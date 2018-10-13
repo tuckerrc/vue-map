@@ -57,7 +57,6 @@ export default {
 </script>
 
 <style>
-@import "../node_modules/leaflet/dist/leaflet.css";
 
 body {
   padding: 0;
