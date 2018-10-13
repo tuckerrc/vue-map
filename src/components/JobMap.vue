@@ -1,19 +1,26 @@
 <template>
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="marker"></l-marker>
+    <v-marker-cluster>
+      <l-marker
+        v-for="marker in jobs"
+        :key="marker.guid"
+        :lat-lng="marker.geometry.coordinates.slice().reverse()"></l-marker>
+      </v-marker-cluster>
     </l-map>
 </template>
 
 <script>
 
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster'
 
 export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
+    'v-marker-cluster': Vue2LeafletMarkercluster
   },
   props: {
     jobs: {
@@ -23,13 +30,17 @@ export default {
   },
   data () {
     return {
-      zoom: 13,
-      center: L.latLng(47.413220, -1.219482),
+      zoom: 4,
+      center: L.latLng(41.032309, -95.850958),
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      marker: L.latLng(47.413220, -1.219482)
     }
   }
 }
 
 </script>
+
+<style>
+@import "~leaflet.markercluster/dist/MarkerCluster.css";
+@import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
+</style>
