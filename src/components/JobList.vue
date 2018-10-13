@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul v-if="jobs.length">
+    <ul class="job-list" v-if="jobs.length">
       <JobListItem
         v-for="job in jobs"
         :key="job.guid"
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style>
-ul {
+ul.job-list {
   padding-left: 0px;
 }
 </style>
