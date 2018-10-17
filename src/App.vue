@@ -7,11 +7,6 @@
         width="400"
         app
       >
-        <JobSearchForm
-          v-model="search"
-          placeholder="Search"
-          @submit="submitForm"
-        />
         <JobList
           :jobs="jobs"
         />
@@ -19,8 +14,23 @@
       <v-toolbar dense dark fixed app>
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title>Search Stack Overflow Jobs</v-toolbar-title>
+        <v-dialog v-model="dialog" max-width="500px">
+          <v-btn slot="activator" color="primary" dark>New Search</v-btn>
+          <v-card>
+            <v-card-title>
+              <span class="headline">Search</span>
+            </v-card-title>
+            <v-container grid-list-md>
+              <JobSearchForm
+                v-model="search"
+                placeholder="Search"
+                @submit="submitForm"
+              />
+            </v-container>
+          </v-card>
+        </v-dialog>
       </v-toolbar>
-      <v-content app>
+      <v-content>
         <JobMap
           :jobs="jobs"
         />
@@ -47,7 +57,8 @@ export default {
   data () {
     return {
       jobs: [],
-      drawer: null
+      drawer: null,
+      dialog: null
     }
   },
   methods: {
@@ -82,6 +93,10 @@ html, body, #app {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+.leaflet-container {
+  z-index: 100;
 }
 
 </style>

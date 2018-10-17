@@ -3,34 +3,42 @@
     id="jobSearch"
     v-on:submit.prevent="handleSubmit"
   >
-    <v-text-field
-      id="search"
-      placeholder="Search Jobs"
-      name="search"
-      v-model="search"
-      label="Search"
-      single-line
-      solo
-      append-icon="search"
-    ></v-text-field>
-    <v-text-field
-      id="location"
-      placeholder="Location"
-      name="location"
-      v-model="location"
-      label="Location"
-      single-line
-      solo
-      append-icon="place"
-    ></v-text-field>
-    <v-checkbox
-      :label="`Remote?`"
-      v-model="remote"
-    ></v-checkbox>
-    <v-btn
-      @click="handleSubmit"
-      @submit="handleSubmit"
-    >submit</v-btn>
+    <v-flex xs12>
+      <v-text-field
+        id="search"
+        placeholder="Search Jobs"
+        name="search"
+        v-model="search"
+        label="Search"
+        single-line
+        solo
+        append-icon="search"
+      ></v-text-field>
+    </v-flex>
+    <v-flex xs12>
+      <v-text-field
+        id="location"
+        placeholder="Location"
+        name="location"
+        v-model="location"
+        label="Location"
+        single-line
+        solo
+        append-icon="place"
+      ></v-text-field>
+    </v-flex>
+    <v-flex xs12>
+      <v-checkbox
+        :label="`Remote?`"
+        v-model="remote"
+      ></v-checkbox>
+    </v-flex>
+    <v-flex xs12>
+      <v-btn
+        @click="handleSubmit"
+        @submit="handleSubmit"
+      >submit</v-btn>
+    </v-flex>
   </form>
 </template>
 

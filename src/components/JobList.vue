@@ -1,5 +1,4 @@
 <template>
-  <div>
     <ul class="job-list" v-if="jobs.length">
       <JobListItem
         v-for="job in jobs"
@@ -16,7 +15,6 @@
     <p v-else>
       No jobs found.
     </p>
-  </div>
 </template>
 
 <script>
