@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <!--<h1>Job Search (Stack Overflow Jobs)</h1>
-    <JobSearchForm
-      v-model="search"
-      placeholder="Search"
-      @submit="submitForm"
-    />
-    <JobList
-      :jobs="jobs"
-    />-->
-    <JobMap
-      :jobs="jobs"
-    />
+    <div class="sidebar">
+      <h1>Job Search (Stack Overflow Jobs)</h1>
+      <JobSearchForm
+        v-model="search"
+        placeholder="Search"
+        @submit="submitForm"
+      />
+      <JobList
+        :jobs="jobs"
+      />
+    </div>
+      <JobMap
+        :jobs="jobs"
+      />
   </div>
 </template>
 
@@ -68,5 +70,21 @@ html, body, #app {
   width: 100%;
   margin: 0;
 }
+
+h1 {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.sidebar {
+   width: 25%;
+   height: 100%;
+   position: fixed;
+   left: 0px;
+   top: 0px;
+   border: 1px solid black;
+   overflow: hidden auto;
+}
+
 
 </style>
