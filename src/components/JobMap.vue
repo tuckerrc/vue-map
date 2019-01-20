@@ -1,5 +1,5 @@
 <template>
-    <l-map :zoom="zoom" :center="center" style="margin-left: 25%; width: 75%">
+    <l-map :zoom="zoom" :center="center" style="margin-left: 25%; width: 75%" id="map">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <v-marker-cluster>
       <l-marker

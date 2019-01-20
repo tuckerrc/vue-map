@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style>
+  #jobSearch {
+    padding-left: 10px;
+  }
   .input,
   .submit {
     clear: both;
@@ -94,11 +97,8 @@ export default {
 
   button[type="button"],
   button[type="submit"]{
-    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-  	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-  	box-shadow: inset 0px 1px 0px 0px #45D6D6;
-  	background-color: #2CBBBB;
-  	border: 1px solid #27A0A0;
+  	background-color: #007bff;
+  	border: 1px solid #007bff;
   	display: inline-block;
   	cursor: pointer;
   	color: #FFFFFF;
@@ -109,10 +109,10 @@ export default {
   	text-transform: uppercase;
   }
 
-  input[type="button"]:hover,
-  input[type="submit"]:hover {
-  	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-  	background-color:#34CACA;
+  button[type="button"]:hover,
+  button[type="submit"]:hover {
+  	background-color:#0069d9;
+    border-color: #0062cc;
   }
 
 </style>

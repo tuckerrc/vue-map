@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="sidebar">
+    <div id="sidebar">
       <h1>Job Search (Stack Overflow Jobs)</h1>
       <JobSearchForm
         v-model="search"
@@ -72,11 +72,11 @@ html, body, #app {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 24px;
   margin-left: 20px;
 }
 
-.sidebar {
+#sidebar {
    width: 25%;
    height: 100%;
    position: fixed;
