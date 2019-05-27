@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <div class="navbar">
-      <span id="menu-btn" class="menu-btn" v-on:click="toggleSidebar">☰</span>
-      <JobSearchForm
-        v-model="search"
-        placeholder="Search"
-        @submit="submitForm"
-      />
-    </div>
-    <div class="content-wrapper">
-      <div id="sidebar" class="sidebar-container" v-bind:class="{ active: showSidebar }">
-        <div class="sidebar-content">
-          <JobList
-            :jobs="jobs"
-          />
+    <div class="content">
+      <div class="navbar">
+        <span id="menu-btn" class="menu-btn" v-on:click="toggleSidebar">☰</span>
+        <JobSearchForm
+          v-model="search"
+          placeholder="Search"
+          @submit="submitForm"
+        />
+      </div>
+      <div class="content-wrapper">
+        <div id="sidebar" class="sidebar-container" v-bind:class="{ active: showSidebar }">
+          <div class="sidebar-content">
+            <JobList
+              :jobs="jobs"
+            />
+          </div>
+        </div>
+        <div class="map-container">
+          <div class="map-content">
+            <JobMap
+              :jobs="jobs"
+            />
+          </diV>
         </div>
       </div>
-      <div class="map-container">
-        <div class="map-content">
-          <JobMap
-            :jobs="jobs"
-          />
-        </diV>
-      </div>
+    </div>
+    <div id="loading-overlay" class="loading-overlay" v-bind:class="{ loading: showSpinner }">
+      <div class="loader"></div>
     </div>
   </div>
 </template>
@@ -45,7 +50,8 @@ export default {
   data () {
       return {
         jobs: [],
-        showSidebar: true
+        showSidebar: true,
+        showSpinner: true
     }
   },
   methods: {
@@ -57,9 +63,11 @@ export default {
           'content-type': 'application/json'
         } })
         .then(response => (this.jobs = response.data.data.features))
+        .then( () => (this.showSpinner = false) )
         .catch(error => (console.log(error)))
     },
     submitForm (data) {
+      this.showSpinner = true;
       this.search(data)
     },
     toggleSidebar () {
@@ -84,7 +92,7 @@ export default {
     margin: 0;
   }
 
-  #app {
+  .content {
     height: 100vh; /* or position:absolute; height:100%; */
     display: flex;
     flex-direction: column;
@@ -154,6 +162,39 @@ export default {
       flex: 1;
       overflow: auto;
     }
+  }
+
+  .loading-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.4;
+    display: none;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .loading-overlay.loading {
+    display: flex;
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
 </style>
