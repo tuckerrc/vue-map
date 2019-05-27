@@ -66,6 +66,11 @@ export default {
       this.showSidebar = !this.showSidebar
     }
   },
+  beforeMount() {
+    if ( screen.width < 800 ) {
+      this.showSidebar = false;
+    }
+  },
   mounted () {
     this.search()
   }
@@ -133,4 +138,22 @@ export default {
   .map-content {
     height: 100%;
   }
+
+  @media (max-width: 1200px) {
+    .sidebar-container.active {
+      flex: 2;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .sidebar-container.active {
+      flex: 3;
+    }
+
+    .map-container {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+
 </style>
