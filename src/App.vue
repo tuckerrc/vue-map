@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="navbar">
+      <span id="menu-btn" class="menu-btn" v-on:click="toggleSidebar">☰</span>
       <JobSearchForm
         v-model="search"
         placeholder="Search"
@@ -8,7 +9,7 @@
       />
     </div>
     <div class="content-wrapper">
-      <div class="sidebar-container">
+      <div id="sidebar" class="sidebar-container" v-bind:class="{ active: showSidebar }">
         <div class="sidebar-content">
           <JobList
             :jobs="jobs"
@@ -42,8 +43,9 @@ export default {
     JobMap
   },
   data () {
-    return {
-      jobs: []
+      return {
+        jobs: [],
+        showSidebar: true
     }
   },
   methods: {
@@ -59,6 +61,9 @@ export default {
     },
     submitForm (data) {
       this.search(data)
+    },
+    toggleSidebar () {
+      this.showSidebar = !this.showSidebar
     }
   },
   mounted () {
@@ -82,6 +87,17 @@ export default {
     margin: 0px;
   }
 
+  .menu-btn {
+    font-size: 30px;
+    float: left;
+    cursor: pointer;
+    padding: 0px 10px;
+  }
+
+  .menu-btn:hover {
+    background-color: grey;
+  }
+
   .navbar {
     padding: 10px 20px;
     background-color: black;
@@ -96,8 +112,13 @@ export default {
   }
 
   .sidebar-container {
-    flex: 1;
+    flex: 0;
     overflow: auto;
+    transition: flex-grow 300ms ease-in-out;
+  }
+
+  .sidebar-container.active {
+    flex: 1;
   }
 
   .sidebar-content {
