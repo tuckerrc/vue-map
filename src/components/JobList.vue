@@ -40,6 +40,5 @@ export default {
 <style>
 ul {
   padding-left: 10px;
-  margin-top: 30px;
 }
 </style>

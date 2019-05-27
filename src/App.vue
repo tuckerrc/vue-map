@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <!--<h1>Job Search (Stack Overflow Jobs)</h1>
-    <JobSearchForm
-      v-model="search"
-      placeholder="Search"
-      @submit="submitForm"
-    />
-    <JobList
-      :jobs="jobs"
-    />-->
-    <JobMap
-      :jobs="jobs"
-    />
+    <div class="navbar">
+      <JobSearchForm
+        v-model="search"
+        placeholder="Search"
+        @submit="submitForm"
+      />
+    </div>
+    <div class="content-wrapper">
+      <div class="sidebar-container">
+        <div class="sidebar-content">
+          <JobList
+            :jobs="jobs"
+          />
+        </div>
+      </div>
+      <div class="map-container">
+        <div class="map-content">
+          <JobMap
+            :jobs="jobs"
+          />
+        </diV>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -58,15 +69,47 @@ export default {
 
 <style>
 
-body {
-  padding: 0;
-  margin: 0;
- }
+  body {
+    padding: 0;
+    margin: 0;
+  }
 
-html, body, #app {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
+  #app {
+    height: 100vh; /* or position:absolute; height:100%; */
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+  }
 
+  .navbar {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    z-index: 0;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: 0px; /* IMPORTANT: you need this for non-chrome browsers */
+  }
+
+  .sidebar-container {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .sidebar-content {
+    color: black;
+  }
+
+  .map-container {
+    flex: 3;
+    overflow: auto;
+  }
+
+  .map-content {
+    height: 100%;
+  }
 </style>
