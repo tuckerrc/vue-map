@@ -1,5 +1,5 @@
 <template>
-    <l-map :zoom="zoom" :center="center">
+    <l-map :zoom="zoom" :center="center" v-on:resize-map="resizeMap" ref="jobMap">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <v-marker-cluster>
       <l-marker
@@ -31,6 +31,10 @@ export default {
     jobs: {
       type: Array,
       required: false
+    },
+    mapSize: {
+      type: String,
+      required: false
     }
   },
   data () {
@@ -59,6 +63,14 @@ export default {
     },
     reverseCoordinates: function(data) {
       return data.slice().reverse();
+    },
+    resizeMap: function() {
+      this.$refs.jobMap.mapObject.invalidateSize()
+    }
+  },
+  watch: {
+    mapSize: function (val) {
+      this.resizeMap()
     }
   }
 }

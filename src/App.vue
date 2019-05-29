@@ -21,6 +21,8 @@
           <div class="map-content">
             <JobMap
               :jobs="jobs"
+              :mapSize="mapSize"
+              ref="map"
             />
           </diV>
         </div>
@@ -50,6 +52,7 @@ export default {
   data () {
       return {
         jobs: [],
+        mapSize: "partial",
         showSidebar: true,
         showSpinner: true
     }
@@ -72,6 +75,7 @@ export default {
     },
     toggleSidebar () {
       this.showSidebar = !this.showSidebar
+      this.mapSize = (this.showSidebar) ? "partial" : "full"
     }
   },
   beforeMount() {
